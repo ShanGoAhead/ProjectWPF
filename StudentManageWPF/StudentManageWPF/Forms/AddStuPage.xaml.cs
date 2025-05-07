@@ -34,14 +34,6 @@ namespace StudentManageWPF.Forms
         private StudentService objStudentService = new StudentService();
         private List<Student> stuList = new List<Student>();
         OpenFileDialog objFileDialog = new OpenFileDialog();
-
-        //摄像头
-        private VideoCapture capture;
-        private Mat frame;
-        private Thread cameraThread;
-        private bool isCameraRunning = false;
-        private BitmapSource latestCapturedImage;
-        private Bitmap currentBitmap;
         public AddStuPage()
         {
             InitializeComponent();
@@ -62,77 +54,16 @@ namespace StudentManageWPF.Forms
         //启动摄像头
         private void btnStartVideo_Click(object sender, RoutedEventArgs e)
         {
-            if (!isCameraRunning)
-            {
-                capture = new VideoCapture(0);
-                frame = new Mat();
-                isCameraRunning = true;
-
-                cameraThread = new Thread(() =>
-                {
-                    while (isCameraRunning)
-                    {
-                        capture.Read(frame);
-                        if (!frame.Empty())
-                        {
-                            var image = BitmapSourceConverter.ToBitmapSource(frame);
-                            image.Freeze();
-                            Dispatcher.Invoke(() =>
-                            {
-                                imgVideo.Source = image;
-                            });
-                        }
-                    }
-                });
-                cameraThread.Start();
-            }
         }
         //关闭摄像头
         private void btnCloseVideo_Click(object sender, RoutedEventArgs e)
         {
-            isCameraRunning = false;
-            cameraThread?.Join();
-            capture?.Release();
-            imgVideo.Source = null;
         }
         //开始拍照
         private void btnTake_Click(object sender, RoutedEventArgs e)
         {
-            BitmapImage image = BitmapToBitmapImage(currentBitmap);
-            imgPic.Source = image;
+            
         }
-        private BitmapImage BitmapToBitmapImage(Bitmap bitmap)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bitmap.Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
-                ms.Seek(0, SeekOrigin.Begin);
-
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-                bitmapImage.StreamSource = ms;
-                bitmapImage.EndInit();
-                bitmapImage.Freeze();
-                return bitmapImage;
-            }
-        }
-        private string ConvertImageControlToBase64(System.Windows.Controls.Image imageControl)
-        {
-            if (imageControl.Source == null) return null;
-
-            BitmapSource bitmapSource = imageControl.Source as BitmapSource;
-            JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
-
-            using (MemoryStream ms = new MemoryStream())
-            {
-                encoder.Save(ms);
-                byte[] imageBytes = ms.ToArray();
-                return Convert.ToBase64String(imageBytes);
-            }
-        }
-
         //清除照片
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
@@ -141,13 +72,9 @@ namespace StudentManageWPF.Forms
         //选择照片
         private void btnChoseImage_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "图片文件|*.jpg;*.jpeg;*.png;*.bmp";
-            if (ofd.ShowDialog() == true)
-            {
-                BitmapImage bitmap = new BitmapImage(new Uri(ofd.FileName));
-                imgPic.Source = bitmap;
-            }
+            Nullable<bool> result = objFileDialog.ShowDialog();
+            if (result == true)
+                imgPic.Source = new BitmapImage(new Uri(objFileDialog.FileName, UriKind.RelativeOrAbsolute));
         }
         //关闭窗体
         private void btnClose_Click(object sender, RoutedEventArgs e)
