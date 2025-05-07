@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="StudentManageWPF.Forms.AttendanceQueryPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentManageWPF.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="671" d:DesignWidth="1006">
+<UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary  Source="/Common/DataGridCss.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="contentCenterStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="#EFFFFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="477*"/>
+            <ColumnDefinition Width="16*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="506*"/>
+            <RowDefinition Height="38*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Column="1" Content="考勤查询" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Center" FontSize="20" FontWeight="Bold"  Foreground="Purple" />
+        <Grid Grid.Row="3"  Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="100*"/>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="98*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="82*"/>
+                <ColumnDefinition Width="60*"/>
+                <ColumnDefinition Width="40*"/>
+                <ColumnDefinition Width="48*"/>
+                <ColumnDefinition Width="19*"/>
+                <ColumnDefinition Width="41*"/>
+                <ColumnDefinition Width="48*"/>
+                <ColumnDefinition Width="18*"/>
+                <ColumnDefinition Width="38*"/>
+                <ColumnDefinition Width="50*"/>
+                <ColumnDefinition Width="144*"/>
+                <ColumnDefinition Width="80*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="时间" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13" />
+            <TextBlock Text="姓名" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13"  Grid.Column="2"/>
+            <TextBlock Text="应到" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13"  Grid.Column="7"/>
+            <TextBlock Text="实到" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13"  Grid.Column="10"/>
+            <TextBlock Text="缺勤" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="13"  Grid.Column="13"/>
+            <Button Name="btnQuery" Grid.Column="5" Background="#009ad4" Click="btnQuery_Click">
+                <DockPanel Width="80" >
+                    <Image Source="/Images/Ico/Query.ico" Height="16" Margin="5,0,2,0 " />
+                    <TextBlock  FontSize="13" Foreground="#FFFFFF">提交查询</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button Name="btnClose"  Grid.Column="16" Background="#009ad4" Click="btnClose_Click" >
+                <DockPanel Width="80" >
+                    <Image Source="/Images/Ico/关闭.bmp" Height="16" Margin="0,0,2,0 " />
+                    <TextBlock  FontSize="13" Foreground="#FFFFFF">关闭窗体</TextBlock>
+                </DockPanel>
+            </Button>
+            <TextBox Grid.Column="3" Background="#FFFFFF" HorizontalContentAlignment="Center"  Name="txtName"/>
+            <Label Name="lblCount" Grid.Column="8" Background="#FFFFFF" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Label Name="lblReal" Grid.Column="11" Background="#FFFFFF" Content="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <Label Name="lblAbsenceCount" Grid.Column="14" Background="#FFFFFF" Content="0" Foreground="Red" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
+            <DatePicker Name="dtpTime" Grid.Column="1" VerticalAlignment="Center" />
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="1" >
+            <DataGrid Background="#EFFFFF" Name="dgvStudentList" RowHeaderWidth="0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                IsReadOnly="True"  ScrollViewer.PanningMode="VerticalOnly" RowBackground="#FFFFFFC0" AlternatingRowBackground="#FF80FFFF"   AutoGenerateColumns="False" VerticalContentAlignment="Center">
+                <DataGrid.Columns >
+                    <DataGridTextColumn Header="打卡时间" Width="200" Binding="{Binding DTime,StringFormat='yyyy-MM-dd HH:mm:ss'}"/>
+                    <DataGridTextColumn Header="学号" Width="160" Binding="{Binding StudentId}"/>
+                    <DataGridTextColumn Width="160" Header="考勤卡号" Binding="{Binding CardNo}"/>
+                    <DataGridTextColumn Header="姓名" Width="160" Binding="{Binding StudentName}"/>
+                    <DataGridTextColumn Header="性别" Width="120" Binding="{Binding Gender}"/>
+                    <DataGridTextColumn Header="所在班级" Width="160" Binding="{Binding ClassName}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+    </Grid>
+</UserControl>

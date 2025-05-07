@@ -1,0 +1,55 @@
+﻿<Window x:Class="StudentManageWPF.FrmAdminLogin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManageWPF"
+        mc:Ignorable="d"
+        Title="学员信息管理系统-【用户登录】" WindowStartupLocation="CenterScreen" Height="240" Width="600" Background="#FFD4D4D4" Icon="/Images/Ico/UserLogin.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" >
+            <Image Source="Images/login.jpg" Margin="20" Stretch="Fill" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="46*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="21*"/>
+                <RowDefinition Height="30*"/>
+                <RowDefinition Height="32*"/>
+                <RowDefinition Height="31*"/>
+                <RowDefinition Height="20*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="71*"/>
+                <ColumnDefinition Width="20*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="20" Margin="10,0,0,0" Width="80">登录账号：</TextBlock>
+            <TextBox Name="txtLoginId"  Grid.Column="3"  Background="#ffffff" VerticalAlignment="Center" 
+                     Margin="0,0,39,0" Grid.Row="1" Text="10000" KeyDown="txtLoginId_KeyDown" Grid.ColumnSpan="2" Height="17"/>
+            <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Height="20" Margin="10,0,0,0" Width="80">登录密码：</TextBlock>
+            <PasswordBox Name="txtLoginPwd" Password="1234567" Grid.Column="3" Grid.Row="3" VerticalAlignment="Center" Height="22" Margin="2,0,2,0" KeyDown="txtLoginPwd_KeyDown"/>
+            <Button Name="btnLogin" Grid.Column="1" Grid.ColumnSpan="2"  Grid.Row="5" Width="70" Margin="20,0,0,0" Click="btnLogin_Click">
+                <DockPanel>
+                    <Image Source="Images/Ico/lklLogin.ICO" Height="22" Margin="0,0,5,0"/>
+                    <TextBlock FontSize="16">登 录</TextBlock>
+
+                </DockPanel>
+            </Button>
+            <Button Name="btnClose" Grid.Column="3" Grid.Row="5" Width="70" Margin="10,0,0,0" Click="btnClose_Click">
+                <DockPanel>
+                    <Image Source="Images/Ico/关闭.bmp" Height="22" Margin="0,0,5,0"/>
+                    <TextBlock FontSize="16">退出</TextBlock>
+
+                </DockPanel>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

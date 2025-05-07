@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="StudentManageWPF.Forms.ImportDataPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:StudentManageWPF.Forms"
+             mc:Ignorable="d" 
+             d:DesignHeight="671" d:DesignWidth="1006">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary  Source="/Common/DataGridCss.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="contentCenterStyle" TargetType="{x:Type TextBlock}">
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Background="#EFFFFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="957*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="41*"/>
+            <RowDefinition Height="31*"/>
+            <RowDefinition Height="16*"/>
+            <RowDefinition Height="546*"/>
+            <RowDefinition Height="19*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" FontSize="22" Foreground="Purple" FontWeight="Bold" 
+                   Margin="5,0,0,0">批量导入学员信息</TextBlock>
+        <Button x:Name="btnChoseExcel" Grid.Row="2" Grid.Column="1"  Margin="0,0,768,0" Background="#009ad4" Click="btnChoseExcel_Click">
+            <DockPanel Width="170" >
+                <Image Source="/Images/Ico/CustomerOrder.ico" Height="16" Margin="2,3,2,3"/>
+                <TextBlock Foreground="#ffffff" FontSize="13" VerticalAlignment="Center" > 从外部Excel文件导入数据</TextBlock>
+            </DockPanel>
+        </Button>
+        <Button x:Name="btnSaveToDB" Grid.Row="2" Grid.Column="1"  Margin="209,0,614,0" Background="#009ad4" Click="btnSaveToDB_Click">
+            <DockPanel Width="170" >
+                <Image Source="/Images/Ico/DataBase.ico" Height="16" Margin="2,3,10,3"/>
+                <TextBlock Foreground="#ffffff" FontSize="13" VerticalAlignment="Center" >保存到数据库</TextBlock>
+            </DockPanel>
+        </Button>
+        <DataGrid x:Name="dgvStudentList" Grid.Column="1" Grid.Row="4" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden" 
+                  AutoGenerateColumns="False" RowBackground="#FFFFFFC0" AlternatingRowBackground="#FF80FFFF" BorderBrush="Black" VerticalContentAlignment="Center" Background="#EFFFFF" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="姓名" Width="120" Binding="{Binding StudentName}"/>
+                <DataGridTextColumn Header="性别" Width="40" Binding="{Binding Gender}"/>
+                <DataGridTextColumn Header="出生日期" Width="100" Binding="{Binding Birthday}"/>
+                <DataGridTextColumn Header="年龄" Width="60" Binding="{Binding Age}"/>
+                <DataGridTextColumn Header="身份证号" Width="140" Binding="{Binding StudentIdNo}"/>
+                <DataGridTextColumn Header="考勤卡号" Width="120" Binding="{Binding CardNo}"/>
+                <DataGridTextColumn Header="电话号码" Width="100" Binding="{Binding PhoneNumber}"/>
+                <DataGridTextColumn Header="家庭住址" Width="190" Binding="{Binding StudentAdress}"/>
+                <DataGridTextColumn Header="班级" Width="90" Binding="{Binding ClassName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</UserControl>

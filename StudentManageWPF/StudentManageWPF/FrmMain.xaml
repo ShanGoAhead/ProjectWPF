@@ -1,0 +1,234 @@
+﻿<Window x:Class="StudentManageWPF.FrmMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManageWPF"
+        x:Name="LayoutWindow"
+        mc:Ignorable="d"
+        Title="[学员信息管理系统]--最适合初学者学习的实践项目" Height="756" Width="1300" ResizeMode="CanResizeWithGrip" 
+        WindowStyle="ThreeDBorderWindow" WindowStartupLocation="CenterScreen" WindowState="Normal"
+        PreviewKeyDown="Window_PreviewKeyDown"  Icon="Images/Ico/MainFormLog.ICO" Closing="LayoutWindow_Closing">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="503*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="681*"/>
+            <RowDefinition Height="32*"/>
+        </Grid.RowDefinitions>
+        <Menu Background="#FFC0C0FF" Grid.ColumnSpan="3" >
+            <MenuItem Header="系统(S)" Margin="10,0,0,0" >
+                <MenuItem Header="密码修改（C）" Name="tmiModifyPwd" Click="tmiModifyPwd_Click">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/Ico/UserPsw.ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="密码修改（C）" Name="menuClose" Click="menuClose_Click">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/Ico/关闭.bmp" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="学员管理(M)" Margin="10,0,0,0" >
+                <MenuItem Header="添加学员(A)" Name="menuAddStu" Click="menuAddStu_Click">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/Ico/Purchase.ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="批量导入学员" Name="menuImport" Click="menuImport_Click">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/Ico/关闭.bmp" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="menuManagerStu" Header="学员信息管理(Q)" Click="menuManagerStu_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Ico/student.ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="成绩管理(J)" Margin="10,0,0,0" >
+                <MenuItem Header="成绩查询与分析(Q)" Name="menuQueryAndAnalysis" Click="menuQueryAndAnalysis_Click">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/Ico/DeliveryOrder.ICO" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="成绩快速查询(S)" Name="menuQuery" Click="menuQuery_Click">
+                    <MenuItem.Icon >
+                        <Image Source="/Images/Ico/Query.ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="考勤管理(A)">
+                <MenuItem Name="menuCard" Header="考勤打卡(R)" Click="menuCard_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Ico/CustomerOrder.ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Name="menuAQuery" Header="考勤查询" Click="menuAQuery_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Ico/查询选择.bmp" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="帮助(H)">
+                <MenuItem x:Name="menuLinkxkt" Header="访问官网(X)" Click="menuLinkxkt_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Ico/MainFormLog.ICO" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuUpdate" Header="系统升级(U)" Click="menuUpdate_Click">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Ico/Cancel.ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="menuAbout" Header="关于我们(A)">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Ico/bMan..ico" Width="18"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Label BorderBrush="#FF575757"  Grid.Row="1" BorderThickness="0.4"></Label>
+        <Grid Grid.Row="1" Margin="1,0" Background="#106Db0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60*"/>
+                <RowDefinition Height="184*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="16*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="21*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="欢迎使用" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" 
+                   Grid.ColumnSpan=" 2"  FontSize="18" Grid.Row="0"/>
+            <Calendar  Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            
+            <Button x:Name="btnAddStu" Grid.Column="0" Grid.Row="3" Background="#009ad4"  
+                    Margin="14 2 8 2" BorderBrush="#009ad4" Click="btnAddStu_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/MngIncdown.bmp" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">添加学员</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="btnStuManage" Grid.Column="1" Grid.Row="3" Background="#009ad4"  
+                    Margin="8,2,14,2" BorderBrush="#009ad4" Click="btnStuManage_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/people.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">学员管理</TextBlock>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnCard" Grid.Column="0" Grid.Row="5" Background="#009ad4" 
+                    Margin="14 2 8 2" BorderBrush="#009ad4" Click="btnCard_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/PROPS.ICO" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">考勤打卡</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="btnAttendanceQuery" Grid.Column="1" Grid.Row="5" Background="#009ad4"
+                    Margin="8,2,14,2" BorderBrush="#009ad4" Click="btnAttendanceQuery_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/App.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">考勤查询</TextBlock>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnScoreQuery" Grid.Column="0" Grid.Row="7" Background="#009ad4"
+                    Margin="14 2 8 2" BorderBrush="#009ad4" Click="btnScoreQuery_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/CustomerOrder.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">成绩浏览</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="btnScoreAnalasys" Grid.Column="1" Grid.Row="7" Background="#009ad4"
+                    Margin="8,2,14,2" BorderBrush="#009ad4" Click="btnScoreAnalasys_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/MngIncdown.bmp" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">成绩分析</TextBlock>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnModifyPwd" Grid.Column="0" Grid.Row="9" Background="#009ad4"
+                    Margin="14 2 8 2" BorderBrush="#009ad4" Click="btnModifyPwd_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/about.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">密码修改</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="btnChangeAccount" Grid.Column="1" Grid.Row="9" Background="#009ad4"
+                    Margin="8,2,14,2" BorderBrush="#009ad4" Click="btnChangeAccount_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/Purchase.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">账号切换</TextBlock>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnUpdate" Grid.Column="0" Grid.Row="11" Background="#009ad4"
+                    Margin="14 2 8 2" BorderBrush="#009ad4" Click="btnUpdate_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/Cancel.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">系统升级</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="btnImportStu" Grid.Column="1" Grid.Row="11" Background="#009ad4"
+                    Margin="8,2,14,2" BorderBrush="#009ad4" Click="btnImportStu_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/DataBase.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="#FFFFFF">批量导入</TextBlock>
+                </DockPanel>
+            </Button>
+
+            <Button x:Name="btnGoXiketang" Grid.Column="0" Grid.Row="14" Background="#009ad4" 
+                    Margin="14 2 8 2" BorderBrush="#009ad4" Click="btnGoXiketang_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/SysIco.ico" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFFFFF">访问官网</TextBlock>
+                </DockPanel>
+            </Button>
+            <Button x:Name="btnExit" Grid.Column="1" Grid.Row="14" Background="#009ad4" 
+                    Margin="8,2,14,2" BorderBrush="#009ad4" Click="btnExit_Click">
+                <DockPanel >
+                    <Image  Source="/Images/Ico/关闭.bmp" Height="16" Margin="0,5,5,5"/>
+                    <TextBlock VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Foreground="#FFFFFF">退出系统</TextBlock>
+                </DockPanel>
+            </Button>
+        </Grid>
+        <Label  Grid.Column="2" Grid.Row="1"  BorderBrush="#FF575757" BorderThickness="0.4" ></Label>
+        <Grid Name="Grid_Content" Margin="1,0" Grid.Column="2" Grid.Row="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/mainbg.jpg"/>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Column="1"  Grid.Row="1" Background="#106Db0" >
+            
+        </Grid>
+        <StatusBar Background="#106Db0" Grid.Row="2" Grid.ColumnSpan="3" >
+            <TextBlock Name="lblVersion" Text="版本号 : V 1.0.0" FontSize="15" Foreground="#FFFFFF"/>
+            <TextBlock Text="[当前登陆用户 : "   FontSize="15" Foreground="#FFFFFF"  />
+            <TextBlock Name="lblCurrentUser" Text="王晓军]"  FontSize="15" Foreground="#FFFFFF"/>
+        </StatusBar >
+    </Grid>
+</Window>

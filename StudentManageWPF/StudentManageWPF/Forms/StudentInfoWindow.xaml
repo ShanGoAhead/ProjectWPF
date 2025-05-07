@@ -1,0 +1,54 @@
+﻿<Window x:Class="StudentManageWPF.Forms.StudentInfoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentManageWPF.Forms"
+        mc:Ignorable="d"
+         Title="当前学员信息详情" Height="400" Width="800" WindowStartupLocation="CenterScreen" Icon="/Images/Ico/about.ico">
+    <Grid Background="#EFFFFF">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="84*"/>
+            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="124*"/>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="282*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="36*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="20" Width="80">学生姓名：</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="20" Width="48">性别：</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="20" Width="80">出生日期：</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="20" Width="48">班级：</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="21" Width="80">身份证号：</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="20" Width="80">考勤卡号：</TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize=" 16" Height="20" Width="80">联系电话：</TextBlock>
+        <TextBlock Grid.Row="11" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Height="20" Width="80">家庭住址：</TextBlock>
+        <Label  Name="lblStudentName" Grid.Column="2" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,2,0,1" Grid.Row="1"/>
+        <Label  Name="lblGender" Grid.Column="4" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,2,0,1" Grid.Row="1"/>
+        <Label  Name="lblBirthday" Grid.Row="3" Grid.Column="2" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,2,0,1"/>
+        <Label  Name="lblClassName" Grid.Row="3" Grid.Column="4" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,2,0,1"/>
+        <Label  Name="lblStudentIdNo" Grid.Row="5" Grid.Column="2" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,2,0,1"/>
+        <Label  Name="lblCardNo" Grid.Row="6" Grid.Column="2" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,23,0,0" Grid.RowSpan="2"/>
+        <Label  Name="lblPhoneNumber" Grid.Row="8" Grid.Column="2" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,20,0,0" Grid.RowSpan="2"/>
+        <Label  Name="lblStudentAdress" Grid.ColumnSpan="3" Grid.Row="11" Grid.Column="2" BorderBrush="Black" Background="White"  BorderThickness="0.4" FontSize="16" Margin="0,0,0,36" Grid.RowSpan="2"/>
+        <Button x:Name="btnClose" Grid.Column="6" Content="关闭窗口" Margin="86,0,10,0" Grid.RowSpan="2" Grid.Row="11" FontSize="20" Click="btnClose_Click" Background="#009AD4" Foreground="White" />
+
+    </Grid>
+</Window>
