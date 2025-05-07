@@ -1,0 +1,78 @@
+# Visual Studio 临时文件、生成结果和项目文件目录
+**/[Bb]in/
+**/[Oo]bj/
+*.user
+*.suo
+*.userprefs
+*.vsp
+*.vspscc
+*.cache
+*.pdb
+*.exe
+*.dll
+*.nupkg
+
+# Visual Studio 项目生成日志
+**/buildlog/
+
+# NuGet 包管理
+**/packages/
+*.nupkg
+nuget.config
+**/NuGet.exe
+
+# ReSharper 文件
+_ReSharper.*
+*.resharper
+
+# 测试结果
+**/[Tt]est[Rr]esult*/
+**/TestResults/
+*.trx
+
+# 项目引用和生成文件
+*.csproj.user
+*.csproj.*.user
+*.wpf.csproj.*.user
+
+# 代码分析规则
+*.ruleset
+
+# 临时文件和日志
+*.log
+*.tmp
+*.bak
+
+# 操作系统文件
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# VS Code 配置 (如果使用)
+.vscode/
+
+# 项目引用排除
+**/.vs/
+**/ProjectName.sln.*
+*.sln
+
+# MSBuild 中间文件
+*.msi
+*.msm
+*.msp
+*.msix
+*.mst
+
+# 本地化资源文件
+**/*.resx
+**/Resource.designer.cs
+
+# ClickOnce 发布目录
+**/publish/
+
+# 包引用目录 (旧版)
+**/packages/
+
+# 自动生成的 NuGet客户端配置文件
+**/NuGet.Config
