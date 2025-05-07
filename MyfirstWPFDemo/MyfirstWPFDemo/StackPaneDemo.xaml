@@ -1,0 +1,23 @@
+﻿<Window x:Class="MyfirstWPFDemo.StackPaneDemo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyfirstWPFDemo"
+        mc:Ignorable="d"
+        Title="StackPane面板的使用" Height="180" Width="300" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <GroupBox Header="请选择您喜欢的课程名称" BorderBrush="Black" Margin="10" >
+            <StackPanel Margin="5">
+                <CheckBox Content="A.C#面向对象编程"/>
+                <CheckBox Content="B.WCF通信框架"/>
+                <CheckBox Content="C.WPF快速编程"/>
+                <CheckBox Content="D.ASP.NET-MVC"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+                    <Button Name="btnSubmit"  Content="提交"  Width="60" Margin="5"/>
+                    <Button Name="btnReset"  Content="重选"  Width="60" Margin="5"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</Window>

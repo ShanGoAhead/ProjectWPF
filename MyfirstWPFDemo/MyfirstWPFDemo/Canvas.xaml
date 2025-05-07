@@ -1,0 +1,19 @@
+﻿<Window x:Class="MyfirstWPFDemo.Canvas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyfirstWPFDemo"
+        mc:Ignorable="d"
+        Title="Canvas面板的使用" Height="200" Width="320" WindowStartupLocation="CenterScreen" >
+    <Grid>
+        <Canvas Margin="10">
+            <Label Content="用户名：" Canvas.Left="32" Canvas.Top="32" />
+            <TextBox Canvas.Left="90" x:Name="txtLoginId" Canvas.Top="36" Width="120" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Content="密码：" Canvas.Left="44" Canvas.Top="65"/>
+            <PasswordBox  x:Name="txtLoginPwd" Canvas.Left="90" Canvas.Top="69" Width="120"/>
+            <Button x:Name="txtLogin" Content="登录" Canvas.Left="100" Canvas.Top="108"  VerticalAlignment="Center"/>
+            <Button  x:Name="txtExit" Content="关闭" Canvas.Left="170" Canvas.Top="108"  VerticalAlignment="Center"/>
+        </Canvas>
+    </Grid>
+</Window>
