@@ -153,7 +153,6 @@
                     <DataGridTextColumn Header="考勤卡号" Width="150" Binding="{Binding CardNo}"/>
                     <DataGridTextColumn Header="所在班级" Width="135" Binding="{Binding ClassName}"/>
                 </DataGrid.Columns>
-
             </DataGrid>
         </Grid>
         
